@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://crnuitur4ygb5"]
 
-[ext_resource type="Script" path="res://scenes/tank.gd" id="1_5focf"]
+[ext_resource type="Script" path="res://scenes/actors/tank.gd" id="1_5focf"]
 [ext_resource type="Texture2D" uid="uid://d2y111vkk3s5d" path="res://assets/sprites/tank_body.png" id="1_uw7lc"]
-[ext_resource type="PackedScene" uid="uid://ux82gl0h8yig" path="res://scenes/weapon.tscn" id="2_410ti"]
+[ext_resource type="PackedScene" uid="uid://ux82gl0h8yig" path="res://scenes/actors/weapon.tscn" id="2_410ti"]
 
 [sub_resource type="Animation" id="Animation_d52x1"]
 length = 0.001
@@ -88,6 +88,7 @@ size = Vector2(26, 26)
 [node name="Tank" type="Node2D"]
 
 [node name="Tank" type="CharacterBody2D" parent="." node_paths=PackedStringArray("weapon")]
+collision_layer = 2
 script = ExtResource("1_5focf")
 weapon = NodePath("Weapon")
 

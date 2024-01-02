@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckgeaxmuvymt0"]
+
+[ext_resource type="Texture2D" uid="uid://do7bug4s4xg13" path="res://assets/sprites/oryx_16bit_scifi_world_18.png" id="1_tpmc6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w5x5w"]
+
+[node name="Plus" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tpmc6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_w5x5w")
