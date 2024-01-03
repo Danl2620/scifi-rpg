@@ -11,9 +11,15 @@ config_version=5
 [application]
 
 config/name="fundamentals"
-run/main_scene="res://scenes/worlds/world.tscn"
+run/main_scene="res://scenes/game.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=2048
+window/size/viewport_height=1200
+window/stretch/mode="viewport"
 
 [input]
 

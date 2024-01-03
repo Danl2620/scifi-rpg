@@ -9,7 +9,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Tank/BodySprite:texture")
+tracks/0/path = NodePath("BodySprite:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -21,7 +21,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Tank/BodySprite:frame")
+tracks/1/path = NodePath("BodySprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -36,7 +36,7 @@ resource_name = "idle"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Tank/BodySprite:texture")
+tracks/0/path = NodePath("BodySprite:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -48,7 +48,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Tank/BodySprite:frame")
+tracks/1/path = NodePath("BodySprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -65,7 +65,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Tank/BodySprite:frame")
+tracks/0/path = NodePath("BodySprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -85,26 +85,25 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vgmxe"]
 size = Vector2(26, 26)
 
-[node name="Tank" type="Node2D"]
-
-[node name="Tank" type="CharacterBody2D" parent="." node_paths=PackedStringArray("weapon")]
+[node name="Tank" type="CharacterBody2D" node_paths=PackedStringArray("weapon")]
 collision_layer = 2
 script = ExtResource("1_5focf")
 weapon = NodePath("Weapon")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Tank"]
-root_node = NodePath("../..")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_mber7")
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tank"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_vgmxe")
 
-[node name="BodySprite" type="Sprite2D" parent="Tank"]
+[node name="BodySprite" type="Sprite2D" parent="."]
 position = Vector2(-1, 0)
 texture = ExtResource("1_uw7lc")
 hframes = 2
 
-[node name="Weapon" parent="Tank" instance=ExtResource("2_410ti")]
+[node name="Weapon" parent="." instance=ExtResource("2_410ti")]
+
+[node name="Camera2D" type="Camera2D" parent="."]

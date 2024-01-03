@@ -1,6 +1,9 @@
 extends Node2D
 class_name Weapon
 
+signal reloaded()
+signal reload_progress(progress)
+
 enum STATE { READY, FIRING, RELOADING }
 
 var state : STATE = STATE.READY
@@ -28,7 +31,12 @@ func fire():
 	
 func _on_reload_timer_timeout():
 	change_state(STATE.READY)
+	reloaded.emit()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _process(_delta):
+	var timer:Timer = reload_timer
+	if !timer.is_stopped():
+		##reload_progress.emit(1-(timer.time_left/timer.wait_time))
+		reload_progress.emit(remap(timer.time_left,timer.wait_time,0,0,1))
+

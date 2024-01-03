@@ -12,8 +12,8 @@ func _physics_process(delta):
 	position += direction.normalized() * SPEED * delta
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+#func _process(delta):
+	#pass
 
 
 func _on_body_entered(body):

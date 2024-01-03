@@ -13,5 +13,6 @@ texture = ExtResource("1_7s230")
 offset = Vector2(10, 0)
 
 [node name="ReloadTimer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]

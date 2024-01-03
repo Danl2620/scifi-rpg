@@ -9,12 +9,27 @@ const ROTATE_SPEED = 20
 @onready var body_sprite := $BodySprite
 @onready var animation_player = $AnimationPlayer
 @onready var collider = $CollisionShape2D
+@onready var camera : Camera2D = $Camera2D
 
 var direction : Vector2 = Vector2(1,0)
 
+signal collected(collectable)
+signal reloaded()
+signal reload_progress(progress)
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass ## weapon.set_rotation_degrees(0)
+	##pass ## weapon.set_rotation_degrees(0)
+	weapon.reloaded.connect(func (): reloaded.emit())
+	weapon.reload_progress.connect(func (progress): reload_progress.emit(progress))
+	camera.enabled = true
+	camera.position_smoothing_enabled = true
+	camera.limit_left = 0
+	camera.limit_top = 0
+	camera.limit_right = 1200
+	camera.limit_bottom = 680
+	camera.zoom = Vector2(3,3)
 
 func _input(event):
 	if event.is_action_pressed("weapon_fire"):
@@ -48,5 +63,9 @@ func _physics_process(delta):
 	weapon.set_rotation_degrees(weapon.get_rotation_degrees() + (weapon_rotate_direction * ROTATE_SPEED * delta * PI))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+#func _process(delta):
+	#pass
+
+
+func collect(collectable):
+	collected.emit(collectable)
