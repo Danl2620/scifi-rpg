@@ -1,16 +1,16 @@
 [gd_scene load_steps=8 format=3 uid="uid://b81k3bji16047"]
 
-[ext_resource type="Texture2D" uid="uid://vrxwxtobyo2p" path="res://icon.svg" id="1_crgnp"]
-[ext_resource type="PackedScene" uid="uid://crnuitur4ygb5" path="res://scenes/actors/tank.tscn" id="2_aqktm"]
-[ext_resource type="PackedScene" uid="uid://cydkpkx3wj2v7" path="res://scenes/actors/wall.tscn" id="3_3h8ru"]
-[ext_resource type="PackedScene" uid="uid://ckgeaxmuvymt0" path="res://scenes/actors/plus.tscn" id="4_n12qe"]
-[ext_resource type="PackedScene" uid="uid://cqqu4835bfy1y" path="res://scenes/actors/crate.tscn" id="5_k5430"]
+[ext_resource type="Texture2D" uid="uid://vrxwxtobyo2p" path="res://icon.svg" id="1_qn4yx"]
+[ext_resource type="PackedScene" uid="uid://crnuitur4ygb5" path="res://scenes/actors/tank.tscn" id="2_3whd1"]
+[ext_resource type="PackedScene" uid="uid://cydkpkx3wj2v7" path="res://scenes/actors/wall.tscn" id="3_bh4on"]
+[ext_resource type="PackedScene" uid="uid://ckgeaxmuvymt0" path="res://scenes/actors/plus.tscn" id="4_3wwd6"]
+[ext_resource type="PackedScene" uid="uid://cqqu4835bfy1y" path="res://scenes/actors/crate.tscn" id="5_muu26"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_dradj"]
 resource_name = "walls"
-scenes/1/scene = ExtResource("3_3h8ru")
-scenes/2/scene = ExtResource("4_n12qe")
-scenes/3/scene = ExtResource("5_k5430")
+scenes/1/scene = ExtResource("3_bh4on")
+scenes/2/scene = ExtResource("4_3wwd6")
+scenes/3/scene = ExtResource("5_muu26")
 
 [sub_resource type="TileSet" id="TileSet_ekwbb"]
 sources/0 = SubResource("TileSetScenesCollectionSource_dradj")
@@ -19,9 +19,9 @@ sources/0 = SubResource("TileSetScenesCollectionSource_dradj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(762, 436)
-texture = ExtResource("1_crgnp")
+texture = ExtResource("1_qn4yx")
 
-[node name="Tank" parent="." instance=ExtResource("2_aqktm")]
+[node name="Tank" parent="." instance=ExtResource("2_3whd1")]
 position = Vector2(397, 400)
 
 [node name="TileMap" type="TileMap" parent="."]

@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=3 uid="uid://bwl0pax0vgyt5"]
+
+[ext_resource type="Texture2D" uid="uid://8f7p4lbwtdyl" path="res://assets/sprites/enemies/armor_guy_1.png" id="1_fhuv3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wlt0v"]
+
+[sub_resource type="Animation" id="Animation_8xpgi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BodySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_hx73k"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BodySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_kxkes"]
+resource_name = "move"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BodySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vl4vq"]
+_data = {
+"RESET": SubResource("Animation_8xpgi"),
+"idle": SubResource("Animation_hx73k"),
+"move": SubResource("Animation_kxkes")
+}
+
+[node name="ArmorGuy1" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wlt0v")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vl4vq")
+}
+
+[node name="BodySprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_fhuv3")
+hframes = 2
+frame = 1
