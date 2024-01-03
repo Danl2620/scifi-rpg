@@ -9,11 +9,11 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+#func _process(_delta):
+	#pass
 
 func destroy():
 	var pickup: Node2D = PICKUP_SCENE.instantiate()
 	pickup.set_global_position(global_position)
-	get_tree().root.add_child(pickup)
+	get_tree().root.call_deferred("add_child", pickup)
 	queue_free()

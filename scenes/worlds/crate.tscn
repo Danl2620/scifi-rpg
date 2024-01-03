@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cqqu4835bfy1y"]
 
 [ext_resource type="Texture2D" uid="uid://cl25gm38j0jp4" path="res://assets/sprites/crate.png" id="1_cy0g2"]
-[ext_resource type="Script" path="res://scenes/actors/crate.gd" id="1_ecwnd"]
-[ext_resource type="PackedScene" uid="uid://3081w84rmmky" path="res://scenes/actors/pickup.tscn" id="2_jte6p"]
+[ext_resource type="Script" path="res://scenes/worlds/crate.gd" id="1_ecwnd"]
+[ext_resource type="PackedScene" uid="uid://3081w84rmmky" path="res://scenes/worlds/pickup.tscn" id="2_jte6p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gq6sw"]
 
