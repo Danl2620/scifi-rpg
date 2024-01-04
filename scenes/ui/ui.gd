@@ -47,9 +47,6 @@ func _on_reloaded() -> void:
 #func _process(delta):
 	#pass
 
-func _on_main_menu_start_game():
-	start_game.emit()
-
 func _on_music_slider_value_changed(value):
 	AudioServer.set_bus_volume_db(MUSIC_BUS_ID, linear_to_db(value))
 	AudioServer.set_bus_mute(MUSIC_BUS_ID, value < 0.05)
@@ -59,3 +56,7 @@ func _on_sfx_slider_value_changed(value):
 	AudioServer.set_bus_volume_db(SFX_BUS_ID, linear_to_db(value))
 	AudioServer.set_bus_mute(SFX_BUS_ID, value < 0.05)
 
+
+
+func _on_main_menu_start_game():
+	start_game.emit()
