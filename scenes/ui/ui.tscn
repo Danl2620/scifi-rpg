@@ -1,7 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://bsk17bhq6byro"]
+[gd_scene load_steps=7 format=3 uid="uid://bsk17bhq6byro"]
 
 [ext_resource type="Script" path="res://scenes/ui/ui.gd" id="1_a21uc"]
 [ext_resource type="Texture2D" uid="uid://qvslia6pujyg" path="res://assets/sprites/ammo_ui_icon.png" id="2_qfqgs"]
+[ext_resource type="PackedScene" uid="uid://dhdko5fnc6u1j" path="res://scenes/ui/main_menu.tscn" id="3_hf7r5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3lr4p"]
+line_spacing = 5.0
+font_size = 24
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jgwnt"]
 atlas = ExtResource("2_qfqgs")
@@ -22,6 +27,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
 layout_mode = 1
@@ -45,6 +52,8 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 text = "200"
+label_settings = SubResource("LabelSettings_3lr4p")
+vertical_alignment = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -57,3 +66,79 @@ step = 0.1
 fill_mode = 3
 texture_under = SubResource("AtlasTexture_jgwnt")
 texture_progress = SubResource("AtlasTexture_h8i33")
+
+[node name="Menu" type="Control" parent="Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control/Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.207843, 0.207843, 0.207843, 0.776471)
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 256
+theme_override_constants/margin_right = 256
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Menu/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="Control/Menu/MarginContainer/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/h_separation = 16
+columns = 2
+
+[node name="MusicLabel" type="Label" parent="Control/Menu/MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Music Volume"
+
+[node name="MusicSlider" type="HSlider" parent="Control/Menu/MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 1.0
+tick_count = 21
+
+[node name="SFXLabel" type="Label" parent="Control/Menu/MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "SFX Volume"
+
+[node name="SFXSlider" type="HSlider" parent="Control/Menu/MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 1.0
+tick_count = 21
+
+[node name="MainMenu" parent="Control" instance=ExtResource("3_hf7r5")]
+visible = false
+layout_mode = 1
+
+[connection signal="value_changed" from="Control/Menu/MarginContainer/VBoxContainer/GridContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Control/Menu/MarginContainer/VBoxContainer/GridContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]

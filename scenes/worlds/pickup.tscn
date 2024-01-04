@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://3081w84rmmky"]
+[gd_scene load_steps=5 format=3 uid="uid://3081w84rmmky"]
 
 [ext_resource type="Script" path="res://scenes/worlds/pickup.gd" id="1_laron"]
 [ext_resource type="Texture2D" uid="uid://b5utaxrnffw20" path="res://assets/sprites/pickups.png" id="2_cdacq"]
+[ext_resource type="AudioStream" uid="uid://de22mfyv0wcwi" path="res://assets/audio/sfx/pickup.wav" id="3_qrg5a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pdbd3"]
 
@@ -15,5 +16,9 @@ texture = ExtResource("2_cdacq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_pdbd3")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_qrg5a")
+bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

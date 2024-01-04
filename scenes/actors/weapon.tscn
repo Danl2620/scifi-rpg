@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ux82gl0h8yig"]
+[gd_scene load_steps=5 format=3 uid="uid://ux82gl0h8yig"]
 
 [ext_resource type="Texture2D" uid="uid://c57ldqa31b3vy" path="res://assets/sprites/tank_weapon.png" id="1_7s230"]
 [ext_resource type="Script" path="res://scenes/actors/weapon.gd" id="1_fib56"]
 [ext_resource type="PackedScene" uid="uid://b61ueun3l3dog" path="res://scenes/actors/bullet.tscn" id="2_xxo5n"]
+[ext_resource type="AudioStream" uid="uid://bbk7fsdlqa3v0" path="res://assets/audio/sfx/fire.wav" id="4_1t2od"]
 
 [node name="Weapon" type="Node2D"]
 script = ExtResource("1_fib56")
@@ -14,5 +15,9 @@ offset = Vector2(10, 0)
 
 [node name="ReloadTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_1t2od")
+bus = &"SFX"
 
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]

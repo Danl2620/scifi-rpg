@@ -9,6 +9,7 @@ enum STATE { READY, FIRING, RELOADING }
 var state : STATE = STATE.READY
 
 @onready var reload_timer = $ReloadTimer
+@onready var audio_player = $AudioStreamPlayer
 @export var BULLET_SCENE: PackedScene
 
 # Called when the node enters the scene tree for the first time.
@@ -22,11 +23,16 @@ func fire():
 	if state == STATE.FIRING || state == STATE.RELOADING:
 		return
 
-	reload_timer.start()
+	## sfx
+	audio_player.play()
+
+	## spawn the bullet
 	var bullet = BULLET_SCENE.instantiate()
 	bullet.direction = Vector2.from_angle(global_rotation)
 	bullet.set_global_position(global_position)
 	get_tree().root.add_child(bullet)
+
+	reload_timer.start()
 	change_state(STATE.FIRING)
 	
 func _on_reload_timer_timeout():

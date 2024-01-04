@@ -23,7 +23,9 @@ func _ready():
 	##pass ## weapon.set_rotation_degrees(0)
 	weapon.reloaded.connect(func (): reloaded.emit())
 	weapon.reload_progress.connect(func (progress): reload_progress.emit(progress))
-	camera.enabled = true
+	
+	## set up the camera
+	camera.enabled = false
 	camera.position_smoothing_enabled = true
 	camera.limit_left = 0
 	camera.limit_top = 0

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dypwnauvsbuap"]
+[gd_scene load_steps=6 format=3 uid="uid://dypwnauvsbuap"]
 
 [ext_resource type="PackedScene" uid="uid://b81k3bji16047" path="res://scenes/worlds/world.tscn" id="1_mp0dq"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_xkf5u"]
 [ext_resource type="PackedScene" uid="uid://bsk17bhq6byro" path="res://scenes/ui/ui.tscn" id="2_oydf6"]
 [ext_resource type="PackedScene" uid="uid://crnuitur4ygb5" path="res://scenes/actors/tank.tscn" id="2_yh5pu"]
+[ext_resource type="AudioStream" uid="uid://18v8nt18b4nd" path="res://assets/audio/music/Rolemusic - The White Frame.mp3" id="5_6qsi1"]
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("tank", "ui")]
 script = ExtResource("1_xkf5u")
@@ -16,3 +17,9 @@ ui = NodePath("Ui")
 
 [node name="Tank" parent="." instance=ExtResource("2_yh5pu")]
 position = Vector2(338, 470)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_6qsi1")
+volume_db = -12.0
+autoplay = true
+bus = &"Music"

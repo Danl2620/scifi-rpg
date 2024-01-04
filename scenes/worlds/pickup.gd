@@ -1,5 +1,6 @@
 extends Area2D
 
+@onready var audio_player = $AudioStreamPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,4 +15,8 @@ func _ready():
 func _on_body_entered(body):
 	if body is Tank:
 		body.collect(self)
+		hide()
+		
+		audio_player.play()
+		await audio_player.finished
 		queue_free()
