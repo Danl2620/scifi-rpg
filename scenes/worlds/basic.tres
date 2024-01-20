@@ -1,0 +1,14 @@
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://b38dnx3gkl1xn"]
+
+[ext_resource type="PackedScene" uid="uid://cydkpkx3wj2v7" path="res://scenes/worlds/wall.tscn" id="1_lckym"]
+[ext_resource type="PackedScene" uid="uid://ckgeaxmuvymt0" path="res://scenes/worlds/plus.tscn" id="2_0y0lq"]
+[ext_resource type="PackedScene" uid="uid://cqqu4835bfy1y" path="res://scenes/worlds/crate.tscn" id="3_fhpbl"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_dradj"]
+resource_name = "walls"
+scenes/1/scene = ExtResource("1_lckym")
+scenes/2/scene = ExtResource("2_0y0lq")
+scenes/3/scene = ExtResource("3_fhpbl")
+
+[resource]
+sources/0 = SubResource("TileSetScenesCollectionSource_dradj")

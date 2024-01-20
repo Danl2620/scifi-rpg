@@ -14,10 +14,15 @@ func start_game():
 	add_child(world)
 	move_child(world, 0)
 	
+	var start_node = world.find_child("Start-0")
+	
 	## create tank
 	tank = TankScene.instantiate()
 	world.add_child(tank)
-	tank.position = Vector2(922,623)
+	if start_node != null:
+		tank.position = start_node.position
+	else:
+		tank.position = Vector2(922,623)
 	tank.collected.connect(ui._on_collected)
 	tank.reload_progress.connect(ui._on_reload_progress)
 	tank.reloaded.connect(ui._on_reloaded)

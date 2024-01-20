@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://bb0xxp8kghv6b"]
+
+[ext_resource type="Script" path="res://scenes/worlds/crate.gd" id="1_14u0x"]
+[ext_resource type="PackedScene" uid="uid://3081w84rmmky" path="res://scenes/worlds/pickup.tscn" id="2_7bqeg"]
+[ext_resource type="Texture2D" uid="uid://dj1ggoau3txqf" path="res://assets/tilesets/oryx_16bit_scifi_world.png" id="3_ehp6m"]
+[ext_resource type="AudioStream" uid="uid://b4icg71tg8rjk" path="res://assets/audio/sfx/crate_break.wav" id="4_dbu6q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmnv1"]
+atlas = ExtResource("3_ehp6m")
+region = Rect2(0, 504, 24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gq6sw"]
+
+[node name="RedCrate" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 15
+linear_velocity = Vector2(1, 1)
+linear_damp = 100.0
+angular_damp = 100.0
+script = ExtResource("1_14u0x")
+PICKUP_SCENE = ExtResource("2_7bqeg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_nmnv1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gq6sw")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_dbu6q")
+bus = &"SFX"
